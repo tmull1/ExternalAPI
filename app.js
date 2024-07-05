@@ -4,13 +4,13 @@ const path = require('path');
 const dotenv = require('dotenv');
 const cors = require('cors');
 
-// Load environment variables from .env file
+
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// CORS Configuration
+
 const corsOptions = {
     origin: '*',
     credentials: true,
@@ -37,7 +37,7 @@ app.post('/team', async (req, res) => {
 
     try {
         const response = await axios.request(options);
-        console.log('API Response:', response.data); // Log the response data
+        console.log('API Response:', response.data); 
         if (response.data && response.data.response && response.data.response.length > 0) {
             const teamData = response.data.response[0];
             res.json(teamData);
